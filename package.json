@@ -1,0 +1,26 @@
+{
+  "name": "mojangson-parser",
+  "version": "0.1.0",
+  "description": "mojangson-parser is a mojangson parser.",
+  "main": "./src/parse/index.js",
+  "scripts": {
+    "build": "webpack"
+  },  
+  "homepage": "http://haima.github.io/mojangson-parser/",
+  "keywords": [
+    "minecraft",
+    "nbt parser",
+    "mojangson",
+    "mojangson parser",
+    "command"
+  ],
+  "author": "hans000<haima_kc@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
