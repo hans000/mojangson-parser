@@ -7,7 +7,13 @@ module.exports = {
     },
     output: {
         filename: 'parse.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        library: {
+            root: 'mojangson'
+        }, 
+        libraryTarget: 'umd',
+        libraryExport: 'default',
+        globalObject: 'this',
     },
     resolve: {
         extensions: ['.ts']
