@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack"
   },  
-  "homepage": "http://haima16.github.io/mojangson-parser/",
+  "homepage": "https://github.com/haima16/mojangson-parser",
   "keywords": [
     "minecraft",
     "nbt parser",
