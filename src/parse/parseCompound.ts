@@ -7,18 +7,19 @@ export default function(value: string) {
     let context: StateType = 'start'
     let tmpKey = '', tmpVal = ''
     let scope = 0
-    let normalString = false
+    let inString = false
     let jsonString = false
 
     for (let i = 0; i < value.length; i++) {
         const ch = value[i]
         if (ch === `"` && !jsonString) {
-            normalString = !normalString
+            inString = !inString
         }
-        if (ch === `'` && !normalString) {
+        if (ch === `'`) {
+            inString = !inString
             jsonString = !jsonString
         }
-        if (!normalString || !jsonString) {
+        if (!inString) {
             if (ch === ' ') {
                 continue
             }
@@ -51,7 +52,7 @@ export default function(value: string) {
         }
         if (context === 'value') {
             if ((ch === ',' || ch === '}') && scope <= 1) {
-                if (!normalString && !jsonString) {
+                if (!inString) {
                     context = 'key'
                     if (scope && ch === '}') {
                         tmpVal += ch
@@ -60,11 +61,11 @@ export default function(value: string) {
                     tmpKey = ''
                     tmpVal = ''
                     continue
-                } else if (normalString) {
-                    throw new Error(`'${tmpVal}' missing quote before '${ch}'`)
-                } else if (jsonString) {
-                    throw new Error(`'${tmpVal}' missing single quote before '${ch}'`)
-                }
+                } 
+                // {
+                //     throw new Error(`'${tmpVal}' missing quote before '${ch}'`)
+                    // throw new Error(`'${tmpVal}' missing single quote before '${ch}'`)
+                // }
             }
             tmpVal += ch
         }

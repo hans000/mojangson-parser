@@ -6,15 +6,15 @@ export default function(value: string) {
     const list = []
     let context: StateType = 'start'
     let scope = 0
-    let tmpVal = ''
-    let normalString = false
+    let tmpVal = undefined
+    let inString = false
     
     for (let i = 0; i < value.length; i++) {
         const ch = value[i]
         if (ch === `"`) {
-            normalString = !normalString
+            inString = !inString
         }
-        if (!normalString) {
+        if (!inString) {
             if (ch === ' ') {
                 continue
             }
@@ -32,7 +32,10 @@ export default function(value: string) {
             continue
         }
         if (context === 'element') {
-            if ((ch === ',' || ch === ']') && scope <= 1 && !normalString) {
+            if ((ch === ',' || ch === ']') && scope <= 1 && !inString) {
+                if (tmpVal === undefined) {
+                    break
+                }
                 if (tmpVal.length === 0 && list.length) {
                     continue
                 }
@@ -41,7 +44,7 @@ export default function(value: string) {
                 tmpVal = ''
                 continue
             }
-            tmpVal += ch
+            tmpVal = tmpVal === undefined ? ch : tmpVal + ch
         }
     }
     return list
