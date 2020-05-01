@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
     mode: 'production',
     entry: {
-        app: './src/parse/index.ts'
+        app: './src/parse.v2/index.ts'
     },
     output: {
         filename: 'parse.js',

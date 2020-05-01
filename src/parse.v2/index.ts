@@ -20,12 +20,34 @@ class Nbt {
         }
         return obj
     }
+    public static testIndexArray() {
+        const match = Nbt.text.match(/\s*\d+\s*:/)
+        if (match) {
+            if (match) {
+                Nbt.eat(match[0].length)
+                return true;
+            }
+        }
+        return false
+    }
+    public static testTypeArray() {
+        const match = Nbt.text.match(/\s*[ILB]\s*;/)
+        if (match) {
+            if (match) {
+                Nbt.eat(match[0].length)
+                return true;
+            }
+        }
+        return false
+    }
     public static parseArray() {
         const array: any[] = []
         if (Nbt.testCloseSquare()) {
             return array
         }
         while (true) {
+            Nbt.testIndexArray()
+            Nbt.testTypeArray()
             if (Nbt.testBeginSquare()) {
                 array.push(Nbt.parseObject())
             } else {
@@ -93,7 +115,7 @@ class Nbt {
             Nbt.eat(_.length)
             return key
         }
-        throw new Error('key is invalid')
+        throw new Error(`Property name is invalid at "${Nbt.text.slice(0, 15)}"`)
     }
     public static parseValue() {
         if (Nbt.testBeginCurly()) {
@@ -116,7 +138,7 @@ class Nbt {
                 return single.slice(1, -1)
             }
         }
-        throw new Error('value is invalid')
+        throw new Error(`value is invalid at "${Nbt.text.slice(0, 15)}"`)
     }
 }
 
