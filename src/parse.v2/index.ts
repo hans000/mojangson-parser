@@ -31,7 +31,7 @@ class Nbt {
         return false
     }
     public static testTypeArray() {
-        const match = Nbt.text.match(/\s*[ILB]\s*;/)
+        const match = Nbt.text.match(/^\s*[ILB]\s*;/)
         if (match) {
             if (match) {
                 Nbt.eat(match[0].length)
