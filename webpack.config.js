@@ -12,8 +12,8 @@ module.exports = {
             root: 'mojangson'
         }, 
         libraryTarget: 'umd',
-        libraryExport: 'default',
-        globalObject: 'this',
+        // libraryExport: 'default',
+        // globalObject: 'this',
     },
     resolve: {
         extensions: ['.ts']
