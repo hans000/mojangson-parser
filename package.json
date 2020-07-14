@@ -1,6 +1,6 @@
 {
   "name": "mojangson-parser",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "mojangson-parser is a mojangson parser.",
   "main": "./dist/parse.js",
   "types": "./src/parse.v2.d.ts",
@@ -8,7 +8,7 @@
     "build": "webpack",
     "test": "ts-jest"
   },
-  "homepage": "https://github.com/haima16/mojangson-parser",
+  "homepage": "https://github.com/hans000/mojangson-parser",
   "keywords": [
     "minecraft",
     "nbt parser",
