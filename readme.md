@@ -62,7 +62,7 @@ See the package source for more details.
 
 ### Example
 
-[JText Studio](https://haima16.github.io/mc-jtext/), this is a online text json creator. One of the functions is automatic path generation. you can click 可选类型 -> nbt（radio button） -> 解析（input），that function used this module.
+[JText Studio](https://hans000.github.io/mc-jtext/), this is a online text json creator. One of the functions is automatic path generation. you can click 可选类型 -> nbt（radio button） -> 解析（input），that function used this module.
 
 ## License
 
