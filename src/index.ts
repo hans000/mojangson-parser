@@ -109,7 +109,7 @@ class Nbt {
         return false
     }
     public static parseKey() {
-        const match = Nbt.text.match(/^\s*([a-z]+)/i)
+        const match = Nbt.text.match(/^\s*([a-z][a-z0-9]*)/i)
         if (match) {
             const [_, key] = match
             Nbt.eat(_.length)
