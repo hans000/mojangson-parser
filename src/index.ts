@@ -142,7 +142,7 @@ class Nbt {
     }
 }
 
-export default function parse(text: string) {
+export default function parser(text: string) {
     Nbt.text = text
     if (Nbt.testBeginCurly()) {
         return Nbt.parseObject() 

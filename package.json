@@ -1,10 +1,15 @@
 {
   "name": "mojangson-parser",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "mojangson-parser is a mojangson parser.",
-  "main": "./dist/umd/mojangsonParser.min.js",
+  "main": "./dist/umd/parser.min.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "readme.md"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "jest"

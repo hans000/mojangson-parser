@@ -32,7 +32,7 @@ function createESMConfig(input, output, production) {
 function createUMDConfig(input, output, production) {
   return defineConfig({
     input,
-    output: { file: output, format: 'umd', name: 'mojangsonParser' },
+    output: { file: output, format: 'umd', name: 'parser' },
     plugins: [
       typescript({
         tsconfig: 'tsconfig.json',
@@ -58,7 +58,7 @@ function createUMDConfig(input, output, production) {
 function createIifeConfig(input, output, production) {
   return defineConfig({
     input,
-    output: { file: output, format: 'iife', name: 'mojangsonParser' },
+    output: { file: output, format: 'iife', name: 'parser' },
     plugins: [
       typescript({
         tsconfig: 'tsconfig.json',
@@ -86,9 +86,9 @@ export default function () {
   return [
     createESMConfig(input, 'dist/es/index.js', false),
     createESMConfig(input, 'dist/es/index.min.js', true),
-    createUMDConfig(input, 'dist/umd/mojangsonParser.js', false),
-    createUMDConfig(input, 'dist/umd/mojangsonParser.min.js', true),
-    createIifeConfig(input, 'dist/iife/mojangsonParser.js', false),
-    createIifeConfig(input, 'dist/iife/mojangsonParser.min.js', true),
+    createUMDConfig(input, 'dist/umd/parser.js', false),
+    createUMDConfig(input, 'dist/umd/parser.min.js', true),
+    createIifeConfig(input, 'dist/iife/parser.js', false),
+    createIifeConfig(input, 'dist/iife/parser.min.js', true),
   ]
 }
