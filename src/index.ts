@@ -109,11 +109,17 @@ class Nbt {
         return false
     }
     public static parseKey() {
-        const match = Nbt.text.match(/^\s*([a-z][a-z0-9]*)/i)
+        const match = Nbt.text.match(/^\s*([0-9a-z_\-\$\.]+)|^\s*("[0-9a-z_\-\$\.]+")|^\s*('[0-9a-z_\-\$\.]+')/i)
         if (match) {
-            const [_, key] = match
+            const [_, bare, double, single] = match
             Nbt.eat(_.length)
-            return key
+            if (single) {
+                return single.slice(1, -1)
+            }
+            if (double) {
+                return double.slice(1, -1)
+            }
+            return bare
         }
         throw new Error(`Property name is invalid at "${Nbt.text.slice(0, 15)}"`)
     }
